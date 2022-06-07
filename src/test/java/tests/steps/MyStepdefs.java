@@ -19,8 +19,7 @@ public class MyStepdefs {
 
     @Given("I am logged in")
     public void assertLogged() {
-        navBarUnlogged.goToLoginModal();
-        loginModal.signIn(reader.getUsername(),reader.getPassword());
+        navBarUnlogged.goToLoginModal().signIn(reader.getUsername(),reader.getPassword());
         Assert.assertTrue(navBarLogged.userIconIsVisible());
     }
 
