@@ -19,7 +19,7 @@ import java.util.function.Function;
 @Log
 public class BasePage {
 
-    public WebDriver driver;
+    public final WebDriver driver;
     public WebDriverWait wait;
     public WebDriverWait longWait;
     public Wait<WebDriver> fluentWait;
@@ -115,7 +115,7 @@ public class BasePage {
     public void confirmCorrectNavigation(String partialURL) {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         try {
-            System.out.println("URL ES " + driver.getCurrentUrl());
+            System.out.println("URL IS " + driver.getCurrentUrl());
             wait.until(ExpectedConditions.urlContains(partialURL));
             Assert.assertTrue(driver.getCurrentUrl(), driver.getCurrentUrl().contains(partialURL));
         } catch (Exception ex) {
